@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="Open Liberty Server">
+    <!-- Enable application deployment -->
+    <applicationMonitor updateTrigger="manual"/>
+    
+    <!-- Enable Spring Boot application to run inside Open Liberty -->
+    <featureManager>
+        <feature>appDynamic-2.0</feature>
+        <feature>server-1.0</feature>
+        <feature>jsp-2.3</feature>
+        <feature>servlet-4.0</feature>
+        <feature>jndi-1.0</feature>
+        <!-- Spring Boot support -->
+        <feature>springBoot-2.3</feature>
+    </featureManager>
+    
+    <!-- Web Application -->
+    <!-- Setting context root to "/" to access the application at the root URL -->
+    <webApplication location="target/my-java-app-2.5.6.war" contextRoot="/hello"/>
+</server>

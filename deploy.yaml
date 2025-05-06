@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-liberty-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-liberty-app
+  template:
+    metadata:
+      labels:
+        app: springboot-liberty-app
+    spec:
+      containers:
+        - name: springboot-liberty-app
+          image: <your-docker-image>
+          ports:
+            - containerPort: 8080

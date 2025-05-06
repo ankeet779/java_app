@@ -1,0 +1,23 @@
+apiVersion: 1.0.0
+metadata:
+  name: springboot-liberty-app
+components:
+  - name: maven
+    container:
+      image: maven:3.8.4-openjdk-17-slim
+      volumeMounts:
+        - mountPath: /workspace
+          name: volume
+  - name: liberty
+    container:
+      image: openliberty/open-liberty:full-java17-openj9-ubi
+      mountSources: true
+      env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: dev
+      volumeMounts:
+        - mountPath: /workspace
+          name: volume
+  - name: volume
+    volume:
+      size: 1Gi
