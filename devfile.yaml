@@ -1,6 +1,7 @@
 apiVersion: 2.2.0
 metadata:
   name: springboot-liberty-app
+  schemaVersion: 2.2.0  # Added schemaVersion here as per devfile v2.2.0 requirement
 components:
   - name: maven
     container:
